@@ -3,7 +3,7 @@ image: gradle:latest
 stages:
   - deploy develop
 
-test:
+deploy develop:
   stage: deploy develop
   tags:
     - build
