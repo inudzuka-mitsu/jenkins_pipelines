@@ -4,7 +4,7 @@ stages:
   - deploy develop
 
 test:
-  stage: test
+  stage: deploy develop
   tags:
     - build
   script:
