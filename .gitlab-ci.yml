@@ -1,0 +1,12 @@
+image: gradle:latest
+
+stages:
+  - deploy develop
+
+test:
+  stage: test
+  tags:
+    - build
+  script:
+    - ./gradlew build --info
+  when: always
