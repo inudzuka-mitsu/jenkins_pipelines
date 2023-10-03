@@ -1,12 +1,8 @@
-image: gradle:latest
-
-stages:
-  - deploy develop
-
-deploy develop:
-  stage: deploy develop
-  tags:
-    - build
+deploy:
+  image:
+    name: bitnami/kubectl:latest
+    entrypoint: ['']
   script:
-    - ./gradlew build --info
-  when: always
+    - kubectl config get-contexts
+    - kubectl config use-context path/to/agent/repository:agent-name
+    - kubectl get pods
