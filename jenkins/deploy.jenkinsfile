@@ -16,13 +16,15 @@ pipeline {
          }
          stage('Create image') {
                          steps{
+                         sh "docker version"
                          script{ 'docker build -t testapp .' }
                          }
          }
          stage('Send to nexus') {
          steps{
-            echo script {'docker login -u admin -p uhVUQ0IHE4Bf12fcD https://nexus.codikup-qa.com'}
-            echo script {'docker push https://nexus.codikup-qa.com/repository/docker/image-test:0.1'}
+         docker
+            script {'docker login -u admin -p uhVUQ0IHE4Bf12fcD https://nexus.codikup-qa.com'}
+            script {'docker push https://nexus.codikup-qa.com/repository/docker/image-test:0.1'}
          }
          }
     }
