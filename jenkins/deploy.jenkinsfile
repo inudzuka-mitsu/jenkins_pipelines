@@ -22,8 +22,8 @@ pipeline {
          stage('Send to nexus') {
          steps{
             sh 'sudo docker login -u admin -p uhVUQ0IHE4Bf12fcD https://nexus-registry.codikup-qa.com'
-            sh 'sudo docker tag testapp:latest nexus-registry.codikup-qa.com/admin/registry-default:latest'
-            sh 'sudo docker push nexus-registry.codikup-qa.com/admin/registry-default:latest'
+            sh 'sudo docker tag testapp:latest nexus-registry.codikup-qa.com/admin/registry-default/testapp:latest'
+            sh 'sudo docker push nexus-registry.codikup-qa.com/admin/registry-default/testapp:latest'
          }
          }
     }
