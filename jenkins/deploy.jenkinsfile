@@ -1,0 +1,27 @@
+pipeline {
+
+    agent {
+        node {
+            label 'jenkins-slave'
+        }
+    }
+   
+    stages {
+         stage('Build project') {
+         steps{
+                                withGradle {
+                                  sh './gradlew build'
+                                }
+         }
+         }
+         stage('Create image') {
+                         steps{
+                         script{ 'docker build -t testapp .' }
+                         }
+         }
+         stage('Send to nexus') {
+         echo 'in progress'
+         }
+    }
+}
+

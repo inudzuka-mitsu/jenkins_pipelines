@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: test-ingress-dev
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: "test-service.NAMESPACE.k8s-dev.codikup-qa.com"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: test-app-service-develop
+            port:
+              number: 80
