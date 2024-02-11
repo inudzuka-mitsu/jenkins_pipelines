@@ -22,7 +22,7 @@ pipeline {
          stage('Send to nexus') {
          steps{
             sh 'sudo docker login -u admin -p uhVUQ0IHE4Bf12fcD https://nexus-registry.codikup-qa.com'
-            sh 'sudo docker push https://nexus-registry.codikup-qa.com/repository/docker/image-test:0.1'
+            sh 'sudo docker push https://nexus.codikup-qa.com/repository/registry-default/image-test:0.1'
          }
          }
     }
