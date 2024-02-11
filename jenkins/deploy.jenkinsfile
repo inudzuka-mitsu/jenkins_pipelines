@@ -23,7 +23,7 @@ pipeline {
          steps{
             sh 'sudo docker login -u admin -p uhVUQ0IHE4Bf12fcD https://nexus-registry.codikup-qa.com'
             sh 'sudo docker tag testapp admin/registry-default'
-            sh 'sudo docker push admin/registry-default'
+            sh 'sudo docker push  admin/registry-default https://nexus.codikup-qa.com/'
          }
          }
     }
