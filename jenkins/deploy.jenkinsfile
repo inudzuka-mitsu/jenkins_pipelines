@@ -16,7 +16,7 @@ pipeline {
          }
          stage('Create image') {
                          steps{
-                         sh 'docker build -t testapp .'
+                         sh 'docker buildx build --tag=testapp:latest  --progress auto --load .'
                          }
          }
          stage('Send to nexus') {
