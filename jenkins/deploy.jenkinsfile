@@ -16,7 +16,6 @@ pipeline {
          }
          stage('Create image') {
                          steps{
-                         sh 'sudo su'
                          sh 'docker buildx build -t testapp --progress auto --load .'
                          }
          }
