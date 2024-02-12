@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: test-app-service-prod
+  name: work-app-service-prod
 spec:
   selector:
-    app: test-app-nginx-prod
+    app: work-app-nginx-prod
   ports:
     - name: http
       protocol: TCP
