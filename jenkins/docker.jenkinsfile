@@ -7,15 +7,11 @@ pipeline {
     }
    
     stages {
-         stage('Deploy app') {
+         stage('Build project') {
          steps{
-            build job: 'childDeployJob',
-            parameters: [
-                string(name: 'STAND', value: "Stage"),
-                string(name: 'TAG', value: "Some tag"),
-                string(name: 'NAMESPACE', value: "work-app"),
-                string(name: 'DEPLOYNAME', value: "Develop"),
-            ]
+                                withGradle {
+                                  sh './gradlew build'
+                                }
          }
          }
          stage('Create image') {
