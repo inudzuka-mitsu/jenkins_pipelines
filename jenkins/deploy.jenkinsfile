@@ -16,7 +16,7 @@ pipeline {
                 string(name: 'STAND', value: "dev"),
                 string(name: 'TAG', value: "Some tag"),
                 string(name: 'NAMESPACE', value: "work-app"),
-                string(name: 'DEPLOYNAME', value: "Develop")
+                string(name: 'DEPLOYNAME', value: "Develop"),
                 string(name: 'PATH', value: "${JOB_NAME}")
             ]
          }
