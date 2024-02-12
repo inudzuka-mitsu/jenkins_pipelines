@@ -10,6 +10,7 @@ pipeline {
          stage('Deploy app') {
          steps{
          sh "pwd"
+         sh "ls -a"
             build job: "childDeployJob", wait: true,
             parameters: [
                 string(name: 'STAND', value: "dev"),
