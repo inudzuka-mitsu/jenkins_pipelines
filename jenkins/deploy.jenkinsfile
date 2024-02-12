@@ -11,10 +11,10 @@ pipeline {
          steps{
             build job: 'childDeployJob',
             parameters: [
-                string(name: 'STAND', value: "Stage"),
-                string(name: 'TAG', value: "Some tag"),
-                string(name: 'NAMESPACE', value: "work-app"),
-                string(name: 'DEPLOYNAME', value: "Develop"),
+                string(name: 'STAND', value: "Stage")
+                string(name: 'TAG', value: "Some tag")
+                string(name: 'NAMESPACE', value: "work-app")
+                string(name: 'DEPLOYNAME', value: "Develop")
             ]
          }
          }
