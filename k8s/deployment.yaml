@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: test-ci
+  name: work-app
   labels:
-    app: my-web-nginx
+    app: my-work-app-nginx
 spec:
   selector:
     matchLabels:
-      app: my-web-nginx
+      app: my-work-app--nginx
   replicas: 3
   strategy:
     type: RollingUpdate
   template:
     metadata:
       labels:
-        app: my-web-nginx
+        app: my-work-app-nginx
     spec:
       containers:
-      - name: test-ci
-        image: registry.codikup-qa.com/akhazanov_local/test-ci:TAG
+      - name: work-app
+        image: nexus-registry.codikup-qa.com/registry-default/testapp:latest
         ports:
         - containerPort: 8080
       imagePullSecrets:
