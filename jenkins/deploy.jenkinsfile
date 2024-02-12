@@ -9,7 +9,7 @@ pipeline {
     stages {
          stage('Deploy app') {
          steps{
-            build job: 'childDeployJob',
+            build job: "childDeployJob", wait: true,
             parameters: [
                 string(name: 'STAND', value: "Stage")
                 string(name: 'TAG', value: "Some tag")
