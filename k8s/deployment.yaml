@@ -19,7 +19,7 @@ spec:
       imagePullSecrets:
       - name: registry-default
       containers:
-      - name: work-app
-        image: https://nexus.codikup-qa.com/repository/registry-default/v2/admin/testapp:latest
+      - name: testapp
+        image: admin/registry-default/testapp:latest
         ports:
         - containerPort: 8080
