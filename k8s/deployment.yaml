@@ -7,7 +7,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      app: my-work-app--nginx
+      app: my-work-app-nginx
   replicas: 3
   strategy:
     type: RollingUpdate
