@@ -3,22 +3,22 @@ kind: Deployment
 metadata:
   name: work-app
   labels:
-    app: my-work-app-nginx
+    app: my-work-app
 spec:
   selector:
     matchLabels:
-      app: my-work-app-nginx
-  replicas: 3
+      app: my-work-app
+  replicas: 1
   strategy:
     type: RollingUpdate
   template:
     metadata:
       labels:
-        app: my-work-app-nginx
+        app: my-work-app
     spec:
       containers:
       - name: work-app
-        image: nexus-registry.codikup-qa.com/registry-default/testapp:latest
+        image: https://nexus-registry.codikup-qa.com/registry-default/testapp:latest
         ports:
         - containerPort: 8080
       imagePullSecrets:
