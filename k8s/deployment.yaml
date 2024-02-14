@@ -16,10 +16,10 @@ spec:
       labels:
         app: my-work-app-nginx
     spec:
-      containers:
-      - name: work-app
-        image: nexus-registry.codikup-qa.com/registry-default/testapp:latest
-        ports:
-        - containerPort: 8080
       imagePullSecrets:
       - name: registry-default
+      containers:
+      - name: work-app
+        image: admin/registry-default/testapp:latest
+        ports:
+        - containerPort: 8080
