@@ -20,6 +20,6 @@ spec:
       - name: registry-default
       containers:
       - name: work-app
-        image: admin/registry-default/testapp:latest
+        image: https://nexus.codikup-qa.com/v2/admin/registry-default/testapp:latest
         ports:
         - containerPort: 8080
