@@ -3,18 +3,18 @@ kind: Deployment
 metadata:
   name: work-app
   labels:
-    app: my-work-app
+    app: my-work-app-dev
 spec:
   selector:
     matchLabels:
-      app: my-work-app
+      app: my-work-app-dev
   replicas: 1
   strategy:
     type: RollingUpdate
   template:
     metadata:
       labels:
-        app: my-work-app
+        app: my-work-app-dev
     spec:
       containers:
       - name: work-app
