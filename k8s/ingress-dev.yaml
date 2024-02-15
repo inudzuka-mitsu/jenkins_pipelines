@@ -12,6 +12,6 @@ spec:
         pathType: Prefix
         backend:
           service:
-            name: work-app-service-develop
+            name: work-app-service
             port:
               number: 80
