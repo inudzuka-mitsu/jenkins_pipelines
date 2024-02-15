@@ -4,7 +4,7 @@ metadata:
   name: work-app-service
 spec:
   selector:
-    app: work-app
+    app: my-work-app
   ports:
     - name: http
       protocol: TCP
