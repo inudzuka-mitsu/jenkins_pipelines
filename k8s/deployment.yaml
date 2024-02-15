@@ -8,7 +8,7 @@ spec:
   selector:
     matchLabels:
       app: work-app-v1
-  replicas: 1
+  replicas: 3
   strategy:
     type: RollingUpdate
   template:
@@ -16,10 +16,10 @@ spec:
       labels:
         app: work-app-v1
     spec:
-      imagePullSecrets:
-      - name: registry-default
       containers:
-      - name: testapp
-        image: nexus-registry.codikup-qa.com/admin/registry-default/testapp:latest
-        ports:
-        - containerPort: 8080
+        - name: testapp
+          image: nexus-registry.codikup-qa.com/admin/registry-default/testapp:latest
+          ports:
+            - containerPort: 8080
+      imagePullSecrets:
+        - name: registry-default
