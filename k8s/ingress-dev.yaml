@@ -5,7 +5,7 @@ metadata:
 spec:
   ingressClassName: work-app
   rules:
-  - host: "work-service.NAMESPACE.k8s-dev.codikup-qa.com"
+  - host: "work-service.default.k8s-dev.codikup-qa.com"
     http:
       paths:
       - path: /
