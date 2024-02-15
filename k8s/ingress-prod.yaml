@@ -14,4 +14,4 @@ spec:
           service:
             name: work-app-nginx-prod
             port:
-              number: 80
+              number: 8080
