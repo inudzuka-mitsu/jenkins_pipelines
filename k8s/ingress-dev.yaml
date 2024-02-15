@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: work-app-ingress
 spec:
-  ingressClassName: work-app
+  ingressClassName: nginx
   rules:
   - host: "work-service.default.k8s-dev.codikup-qa.com"
     http:
