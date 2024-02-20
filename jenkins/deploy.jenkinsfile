@@ -30,7 +30,8 @@ pipeline {
                 sh "sed -e \"s|TAG|${TAG}|g\" k8s/deployment-${STAND}.yaml | kubectl apply -f -"
                 sh "kubectl rollout status deployment work-app-develop"
                 sh "cat k8s/service-${STAND}.yaml | kubectl apply --validate=false -f -"
-                sh "sed -e \"s|NAME|${NAME}|g\" k8s/ingress-${STAND}.yaml | sed -e \"s|NAMESPACE|${NAMESPACE}|g\" k8s/ingress-${STAND}.yaml | kubectl apply --validate=false -f -"
+                sh "sed -e \"s/NAME_APP/${NAME_APP}/g\" k8s/ingress-${STAND}.yaml"
+                sh "sed -e \"s|NAMESPACE|${NAMESPACE}|g\" k8s/ingress-${STAND}.yaml | kubectl apply --validate=false -f -"
                 }
             }
         }

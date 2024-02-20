@@ -5,7 +5,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: "NAME.NAMESPACE.k8s-dev.codikup-qa.com"
+  - host: "NAME_APP.NAMESPACE.k8s-dev.codikup-qa.com"
     http:
       paths:
       - path: /
