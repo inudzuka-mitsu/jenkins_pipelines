@@ -7,6 +7,11 @@ pipeline {
     }
    
     stages {
+          stage('Docker & Kubernetes login'){
+                steps{
+                    sh "sudo docker login -u admin -p uhVUQ0IHE4Bf12fcD https://nexus-registry.codikup-qa.com"
+                }
+          }
          stage('Deploy app') {
          steps{
          sh "pwd"
@@ -14,7 +19,7 @@ pipeline {
             build job: "childDeployJob", wait: true,
             parameters: [
                 string(name: 'STAND', value: "dev"),
-                string(name: 'TAG', value: "Some tag"),
+                string(name: 'TAG', value: "latest"),
                 string(name: 'NAMESPACE', value: "nkpetrov"),
                 string(name: 'DEPLOYNAME', value: "Develop"),
                 string(name: 'PATH', value: "${JOB_NAME}")
