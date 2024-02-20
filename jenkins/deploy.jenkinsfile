@@ -27,7 +27,7 @@ pipeline {
                         namespace: NAMESPACE
                     ]) {
                 sh "sed -e \"s|TAG|${TAG}|g\" k8s/deployment-${STAND}.yaml | kubectl apply -f -"
-                sh "kubectl rollout status deployment work-app"
+                sh "kubectl rollout status deployment work-app-develop"
                 sh "cat k8s/service-${STAND}.yaml | kubectl apply --validate=false -f -"
                 sh "sed -e \"s|NAMESPACE|${NAMESPACE}|g\" k8s/ingress-${STAND}.yaml | kubectl apply --validate=false -f -"
                 }
