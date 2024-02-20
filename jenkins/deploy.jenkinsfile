@@ -5,6 +5,13 @@ pipeline {
             label 'jenkins-slave'
         }
     }
+
+        environment {
+            STAND = "dev"
+            TAG = "latest"
+            NAMESPACE = "nkpetrov"
+            DEPLOYNAME = "Develop"
+        }
    
     stages {
           stage('Docker & Kubernetes login'){
@@ -12,20 +19,20 @@ pipeline {
                     sh "sudo docker login -u admin -p uhVUQ0IHE4Bf12fcD https://nexus-registry.codikup-qa.com"
                 }
           }
-         stage('Deploy app') {
-         steps{
-         sh "pwd"
-         sh "ls -a"
-            build job: "childDeployJob", wait: true,
-            parameters: [
-                string(name: 'STAND', value: "dev"),
-                string(name: 'TAG', value: "latest"),
-                string(name: 'NAMESPACE', value: "nkpetrov"),
-                string(name: 'DEPLOYNAME', value: "Develop"),
-                string(name: 'PATH', value: "${JOB_NAME}")
-            ]
-         }
-         }
+        stage('Deploy to Kubernetes') {
+            steps {
+                withKubeConfig([credentialsId: 'jenkins-deploy-k8s',
+                        serverUrl: 'https://kubernetes.codikup-qa.com:6443',
+                        contextName: 'test',
+                        namespace: NAMESPACE
+                    ]) {
+                sh "sed -e \"s|TAG|${TAG}|g\" k8s/deployment-${STAND}.yaml | kubectl apply -f -"
+                sh "kubectl rollout status deployment ${DEPLOYNAME}-develop"
+                sh "cat k8s/service-${STAND}.yaml | kubectl apply --validate=false -f -"
+                sh "sed -e \"s|NAMESPACE|${NAMESPACE}|g\" k8s/ingress-${STAND}.yaml | kubectl apply --validate=false -f -"
+                }
+            }
+        }
     }
 }
 
