@@ -8,6 +8,7 @@ pluginManagement {
                 password "uhVUQ0IHE4Bf12fcD"
             }
         }
+    }
 }
 
 rootProject.name = "develop"
