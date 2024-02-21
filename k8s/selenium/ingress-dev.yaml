@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: selenium-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: "NAME_APP.NAMESPACE.k8s-dev.codikup-qa.com"
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: selenium-service
+            port:
+              number: 80
