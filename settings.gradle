@@ -1,6 +1,14 @@
 pluginManagement {
     repositories {
         maven {
+            name 'gradle'
+            url "https://nexus.codikup-qa.com/repository/gradle/"
+            credentials {
+                username "admin"
+                password "uhVUQ0IHE4Bf12fcD"
+            }
+        }
+        maven {
             name 'maven-central'
             url "https://nexus.codikup-qa.com/repository/maven-central/"
             credentials {
