@@ -31,6 +31,8 @@ spec:
           env:
             - name: SE_VNC_NO_PASSWORD
               value: '1'
+            - name: SE_ENABLE_TRACING
+              value: 'true'
       imagePullSecrets:
         - name: registry-default
       nodeSelector:
