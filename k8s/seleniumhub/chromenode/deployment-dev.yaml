@@ -25,9 +25,9 @@ spec:
             - containerPort: 4444
           resources:
             requests:
-              memory: "100Mi"
+              memory: "5000i"
             limits:
-              memory: "200Mi"
+              memory: "1Gi"
           env:
             - name: SE_EVENT_BUS_HOST
               value: 'selenium-hub-service'
