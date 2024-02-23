@@ -23,6 +23,10 @@ spec:
             - containerPort: 4442
             - containerPort: 4443
             - containerPort: 4444
+      volumes:
+        - name: selenium-chromenode-config
+          configMap:
+            name: selenium-chromenode-config
       imagePullSecrets:
         - name: registry-default
       nodeSelector:
