@@ -25,7 +25,7 @@ spec:
             - containerPort: 4444
           resources:
             requests:
-              memory: "5000i"
+              memory: "500Mi"
             limits:
               memory: "1Gi"
           env:
