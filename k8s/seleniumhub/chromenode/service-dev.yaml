@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: selenium-chromenode-service
+spec:
+  selector:
+    app: selenium-chromenode-develop
+  ports:
+    - name: http
+      protocol: TCP
+      port: 80
+      targetPort: 4444
