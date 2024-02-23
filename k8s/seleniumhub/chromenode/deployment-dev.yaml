@@ -23,6 +23,11 @@ spec:
             - containerPort: 4442
             - containerPort: 4443
             - containerPort: 4444
+          resources:
+            requests:
+              memory: "100Mi"
+            limits:
+              memory: "200Mi"
           env:
             - name: SE_EVENT_BUS_HOST
               value: 'selenium-hub-service'
@@ -32,11 +37,6 @@ spec:
               value: '4443'
             - name: SE_VNC_NO_PASSWORD
               value: '1'
-      volumes:
-        - emptyDir:
-            medium: Memory
-            sizeLimit: 512Mi
-          name: cache-volume
       imagePullSecrets:
         - name: registry-default
       nodeSelector:
