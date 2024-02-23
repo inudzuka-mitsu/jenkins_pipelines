@@ -24,7 +24,7 @@ spec:
             - containerPort: 4443
             - containerPort: 4444
           env:
-            - name: SE_VNC_VIEW_ONLY
+            - name: SE_VNC_NO_PASSWORD
               value: '1'
       imagePullSecrets:
         - name: registry-default
