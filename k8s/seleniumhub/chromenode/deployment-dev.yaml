@@ -30,6 +30,8 @@ spec:
               value: '4442'
             - name: SE_EVENT_BUS_SUBSCRIBE_PORT
               value: '4443'
+            - name: SE_VNC_NO_PASSWORD
+              value: '1'
       volumes:
         - name: selenium-chromenode-config
           configMap:
