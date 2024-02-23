@@ -23,6 +23,9 @@ spec:
             - containerPort: 4442
             - containerPort: 4443
             - containerPort: 4444
+          env:
+            - name: SE_VNC_VIEW_ONLY
+              value: '1'
       imagePullSecrets:
         - name: registry-default
       nodeSelector:
