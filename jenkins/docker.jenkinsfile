@@ -28,7 +28,7 @@ pipeline {
          }
          stage('Delete image locally') {
          steps{
-            sh 'sudo docker rmi nexus-registry.codikup-qa.com/admin/registry-default/testapp'
+            sh 'sudo docker rm nexus-registry.codikup-qa.com/admin/registry-default/testapp'
          }
          }
     }
