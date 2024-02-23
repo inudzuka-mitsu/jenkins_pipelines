@@ -6,7 +6,15 @@ spec:
   selector:
     app: selenium-hub-develop
   ports:
-    - name: http
+    - name: http1
+      protocol: TCP
+      port: 4442
+      targetPort: 4442
+    - name: http2
+      protocol: TCP
+      port: 4443
+      targetPort: 4443
+    - name: http3
       protocol: TCP
       port: 80
       targetPort: 4444
