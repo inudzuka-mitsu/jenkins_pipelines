@@ -27,6 +27,7 @@ pipeline {
                         contextName: 'test',
                         namespace: NAMESPACE
                     ]) {
+                sh "kubectl apply --validate=false -f k8s/seleniumhub/chromenode/configmap-dev.yaml"
                 sh "sed -e \"s|TAG|${TAG}|g\" k8s/seleniumhub/hub/deployment-${STAND}.yaml | kubectl apply -f -"
                 sh "kubectl rollout status deployment selenium-hub-develop"
                 sh "cat k8s/seleniumhub/hub/service-${STAND}.yaml | kubectl apply --validate=false -f -"
