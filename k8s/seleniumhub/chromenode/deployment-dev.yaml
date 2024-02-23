@@ -33,9 +33,10 @@ spec:
             - name: SE_VNC_NO_PASSWORD
               value: '1'
       volumes:
-        - name: selenium-chromenode-config
-          configMap:
-            name: selenium-chromenode-config
+        - emptyDir:
+            medium: Memory
+            sizeLimit: 512Mi
+          name: cache-volume
       imagePullSecrets:
         - name: registry-default
       nodeSelector:

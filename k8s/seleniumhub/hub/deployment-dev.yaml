@@ -26,6 +26,10 @@ spec:
           env:
             - name: SE_VNC_NO_PASSWORD
               value: '1'
+      volumes:
+        - emptyDir:
+            medium: Memory
+            sizeLimit: 512Mi
       imagePullSecrets:
         - name: registry-default
       nodeSelector:
