@@ -24,11 +24,6 @@ spec:
             - containerPort: 4443
             - containerPort: 4444
             - containerPort: 7900
-          resources:
-            requests:
-              memory: "100Mi"
-            limits:
-              memory: "200Mi"
           env:
             - name: SE_VNC_NO_PASSWORD
               value: '1'
