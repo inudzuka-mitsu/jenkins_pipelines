@@ -18,7 +18,7 @@ spec:
       protocol: TCP
       port: 80
       targetPort: 4444
-    - name: VNC
+    - name: vnc
       protocol: TCP
       port: 7900
       targetPort: 7900
