@@ -1,0 +1,39 @@
+pipeline {
+
+    agent {
+        node {
+            label 'master'
+        }
+    }
+
+        environment {
+            NAME_APP = "work-app"
+            STAND = "dev"
+            TAG = "latest"
+            NAMESPACE = "nkpetrov"
+            DEPLOYNAME = "Develop"
+        }
+   
+    stages {
+          stage('Docker login'){
+                steps{
+                    sh "sudo docker login -u admin -p uhVUQ0IHE4Bf12fcD https://nexus-registry.codikup-qa.com"
+                }
+          }
+        stage('Deploy to Kubernetes') {
+            steps {
+                withKubeConfig([credentialsId: 'jenkins-deploy-k8s',
+                        serverUrl: 'https://kubernetes.codikup-qa.com:6443',
+                        contextName: 'test',
+                        namespace: NAMESPACE
+                    ]) {
+                sh "sed -e \"s|TAG|${TAG}|g\" k8s/deployment-${STAND}.yaml | kubectl apply -f -"
+                sh "kubectl rollout status deployment work-app-develop"
+                sh "cat k8s/service-${STAND}.yaml | kubectl apply --validate=false -f -"
+                sh "sed -e \"s|NAMESPACE|${NAMESPACE}|g\" k8s/ingress-dev.yaml | sed -e \"s|NAME_APP|${NAME_APP}|g\" | kubectl apply --validate=false -f -"
+                }
+            }
+        }
+    }
+}
+
