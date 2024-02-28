@@ -1,0 +1,125 @@
+# Please edit the object below. Lines beginning with a '#' will be ignored,
+# and an empty file will abort the edit. If an error occurs while saving this file will be
+# reopened with the relevant failures.
+#
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2024-02-23T20:45:53Z"
+  generateName: selenium-hub-develop-6f78d8fddc-
+  labels:
+    app: selenium-hub-develop
+    pod-template-hash: 6f78d8fddc
+  name: selenium-hub-develop-6f78d8fddc-d8jqg
+  namespace: nkpetrov
+  ownerReferences:
+    - apiVersion: apps/v1
+      blockOwnerDeletion: true
+      controller: true
+      kind: ReplicaSet
+      name: selenium-hub-develop-6f78d8fddc
+      uid: 1f05619a-e369-4f42-8910-3bbdf62d46f5
+  resourceVersion: "27798715"
+  uid: c8496c1c-4f71-4910-91a1-150c6191acb0
+spec:
+  containers:
+    - env:
+        - name: SE_VNC_NO_PASSWORD
+          value: "1"
+      image: nexus-registry.codikup-qa.com/admin/registry-default/selenium/hub:latest
+      imagePullPolicy: Always
+      name: selenium-hub
+      ports:
+        - containerPort: 4442
+          protocol: TCP
+        - containerPort: 4443
+          protocol: TCP
+        - containerPort: 4444
+          protocol: TCP
+      resources: {}
+      terminationMessagePath: /dev/termination-log
+      terminationMessagePolicy: File
+      volumeMounts:
+        - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+          name: kube-api-access-8bcpg
+          readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  imagePullSecrets:
+    - name: registry-default
+  nodeName: develop
+  nodeSelector:
+    tier: develop
+  preemptionPolicy: PreemptLowerPriority
+  priority: 0
+  restartPolicy: Always
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+    - effect: NoExecute
+      key: node.kubernetes.io/not-ready
+      operator: Exists
+      tolerationSeconds: 300
+    - effect: NoExecute
+      key: node.kubernetes.io/unreachable
+      operator: Exists
+      tolerationSeconds: 300
+  volumes:
+    - name: kube-api-access-8bcpg
+      projected:
+        defaultMode: 420
+        sources:
+          - serviceAccountToken:
+              expirationSeconds: 3607
+              path: token
+          - configMap:
+              items:
+                - key: ca.crt
+                  path: ca.crt
+              name: kube-root-ca.crt
+          - downwardAPI:
+              items:
+                - fieldRef:
+                    apiVersion: v1
+                    fieldPath: metadata.namespace
+                  path: namespace
+status:
+  conditions:
+    - lastProbeTime: null
+      lastTransitionTime: "2024-02-23T20:45:54Z"
+      status: "True"
+      type: Initialized
+    - lastProbeTime: null
+      lastTransitionTime: "2024-02-23T20:45:57Z"
+      status: "True"
+      type: Ready
+    - lastProbeTime: null
+      lastTransitionTime: "2024-02-23T20:45:57Z"
+      status: "True"
+      type: ContainersReady
+    - lastProbeTime: null
+      lastTransitionTime: "2024-02-23T20:45:53Z"
+      status: "True"
+      type: PodScheduled
+  containerStatuses:
+    - containerID: containerd://c696b4f03f967b50bb6d198bd838f9f4142beb3ad760bf7b5f98142384ad8676
+      image: nexus-registry.codikup-qa.com/admin/registry-default/selenium/hub:latest
+      imageID: nexus-registry.codikup-qa.com/admin/registry-default/selenium/hub@sha256:9200fbf366774e5a351f20d63a52f77c77ebfd5075254689879d9e544b390911
+      lastState: {}
+      name: selenium-hub
+      ready: true
+      restartCount: 0
+      started: true
+      state:
+        running:
+          startedAt: "2024-02-23T20:45:57Z"
+  hostIP: 192.168.100.15
+  phase: Running
+  podIP: 10.24.0.85
+  podIPs:
+    - ip: 10.24.0.85
+  qosClass: BestEffort
+  startTime: "2024-02-23T20:45:54Z"
