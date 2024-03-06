@@ -16,5 +16,3 @@ spec:
               port:
                 - name: http1
                   number: 80
-                - name: http2
-                  number: 7900
