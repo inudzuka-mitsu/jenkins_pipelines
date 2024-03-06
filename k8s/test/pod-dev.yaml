@@ -1,0 +1,16 @@
+apiVersion: apps/v1
+kind: Pod
+metadata:
+  name: example-develop
+  labels:
+    app: example-develop
+spec:
+  containers:
+    - name: example-app
+      image: nexus-registry.codikup-qa.com/admin/registry-default/testapp:latest
+      ports:
+        - containerPort: 8080
+  imagePullSecrets:
+    - name: registry-default
+  nodeSelector:
+    tier: develop
