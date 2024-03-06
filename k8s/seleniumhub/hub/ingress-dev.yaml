@@ -14,7 +14,7 @@ spec:
           service:
             - name: selenium-hub-service
               port:
-                number: 80
-            - name: selenium-hub-service
-              port:
-                number: 7900
+                - name: http1
+                  number: 80
+                - name: http2
+                  number: 7900
