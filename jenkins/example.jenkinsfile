@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Empty stage') {
             steps {
-                sh "echo 'run Empty jenkins file'"
+                sh "echo 'run Empty jenkins file *'"
             }
         }
     }
