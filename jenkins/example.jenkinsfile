@@ -1,0 +1,17 @@
+pipeline {
+
+    agent {
+        node {
+            label 'jenkins-slave'
+        }
+    }
+   
+    stages {
+        stage('Empty stage') {
+            steps {
+                sh "echo 'run Empty jenkins file'"
+            }
+        }
+    }
+}
+
