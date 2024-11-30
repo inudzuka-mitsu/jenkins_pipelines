@@ -1,2 +1,2 @@
-# Work project
-Here is Develop application. We will use it as real Work application
+# PerfReview Project
+Created for demoing knowledge of Jenkins pipeline syntax
